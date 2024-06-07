@@ -8,11 +8,11 @@
         <version>2.3.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.siro.mall</groupId>
+    <groupId>com.cx.mall</groupId>
     <artifactId>starsea-mall</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>starsea-mall</name>
-    <description>小米商城</description>
+    <description>宸憙商城</description>
 
     <properties>
         <java.version>1.8</java.version>

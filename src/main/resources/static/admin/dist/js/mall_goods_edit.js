@@ -225,7 +225,7 @@ $('#saveButton').click(function () {
                     icon: "error",
                 });
             }
-            ;
+
         },
         error: function () {
             swal("操作失败", {
@@ -264,7 +264,7 @@ $('#levelOne').on('change', function () {
                     icon: "error",
                 });
             }
-            ;
+
         },
         error: function () {
             swal("操作失败", {
@@ -292,7 +292,7 @@ $('#levelTwo').on('change', function () {
                     icon: "error",
                 });
             }
-            ;
+
         },
         error: function () {
             swal("操作失败", {

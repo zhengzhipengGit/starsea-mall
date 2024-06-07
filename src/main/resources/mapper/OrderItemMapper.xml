@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.siro.mall.dao.OrderItemMapper">
-    <resultMap id="BaseResultMap" type="com.siro.mall.entity.OrderItem">
+<mapper namespace="com.cx.mall.dao.OrderItemMapper">
+    <resultMap id="BaseResultMap" type="com.cx.mall.entity.OrderItem">
         <id column="order_item_id" jdbcType="BIGINT" property="orderItemId"/>
         <result column="order_id" jdbcType="BIGINT" property="orderId"/>
         <result column="goods_id" jdbcType="BIGINT" property="goodsId"/>
@@ -12,7 +12,8 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-        order_item_id, order_id, goods_id, goods_name, goods_cover_img, selling_price, goods_count,
+        order_item_id
+        , order_id, goods_id, goods_name, goods_cover_img, selling_price, goods_count,
         create_time
     </sql>
 
@@ -39,10 +40,11 @@
         </foreach>
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tb_order_item
-    where order_item_id = #{orderItemId,jdbcType=BIGINT}
-  </delete>
-    <insert id="insertBatch" parameterType="com.siro.mall.entity.OrderItem">
+        delete
+        from tb_order_item
+        where order_item_id = #{orderItemId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insertBatch" parameterType="com.cx.mall.entity.OrderItem">
         insert into tb_order_item (order_id, goods_id,
         goods_name, goods_cover_img, selling_price,
         goods_count)
@@ -54,15 +56,15 @@
             #{orderItem.goodsCount,jdbcType=INTEGER})
         </foreach>
     </insert>
-    <insert id="insert" parameterType="com.siro.mall.entity.OrderItem">
-    insert into tb_order_item (order_item_id, order_id, goods_id,
-      goods_name, goods_cover_img, selling_price,
-      goods_count, create_time)
-    values (#{orderItemId,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT},
-      #{goodsName,jdbcType=VARCHAR}, #{goodsCoverImg,jdbcType=VARCHAR}, #{sellingPrice,jdbcType=INTEGER},
-      #{goodsCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
-  </insert>
-    <insert id="insertSelective" parameterType="com.siro.mall.entity.OrderItem">
+    <insert id="insert" parameterType="com.cx.mall.entity.OrderItem">
+        insert into tb_order_item (order_item_id, order_id, goods_id,
+                                   goods_name, goods_cover_img, selling_price,
+                                   goods_count, create_time)
+        values (#{orderItemId,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT},
+                #{goodsName,jdbcType=VARCHAR}, #{goodsCoverImg,jdbcType=VARCHAR}, #{sellingPrice,jdbcType=INTEGER},
+                #{goodsCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.cx.mall.entity.OrderItem">
         insert into tb_order_item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="orderItemId != null">
@@ -117,7 +119,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.siro.mall.entity.OrderItem">
+    <update id="updateByPrimaryKeySelective" parameterType="com.cx.mall.entity.OrderItem">
         update tb_order_item
         <set>
             <if test="orderId != null">
@@ -144,15 +146,15 @@
         </set>
         where order_item_id = #{orderItemId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.siro.mall.entity.OrderItem">
-    update tb_order_item
-    set order_id = #{orderId,jdbcType=BIGINT},
-      goods_id = #{goodsId,jdbcType=BIGINT},
-      goods_name = #{goodsName,jdbcType=VARCHAR},
-      goods_cover_img = #{goodsCoverImg,jdbcType=VARCHAR},
-      selling_price = #{sellingPrice,jdbcType=INTEGER},
-      goods_count = #{goodsCount,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where order_item_id = #{orderItemId,jdbcType=BIGINT}
-  </update>
+    <update id="updateByPrimaryKey" parameterType="com.cx.mall.entity.OrderItem">
+        update tb_order_item
+        set order_id        = #{orderId,jdbcType=BIGINT},
+            goods_id        = #{goodsId,jdbcType=BIGINT},
+            goods_name      = #{goodsName,jdbcType=VARCHAR},
+            goods_cover_img = #{goodsCoverImg,jdbcType=VARCHAR},
+            selling_price   = #{sellingPrice,jdbcType=INTEGER},
+            goods_count     = #{goodsCount,jdbcType=INTEGER},
+            create_time     = #{createTime,jdbcType=TIMESTAMP}
+        where order_item_id = #{orderItemId,jdbcType=BIGINT}
+    </update>
 </mapper>

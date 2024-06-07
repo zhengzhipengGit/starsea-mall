@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('小米商城-商品详情','detail')">
+<head th:replace="mall/header::head-fragment('宸憙商城-商品详情','detail')">
 </head>
 <body>
 <header th:replace="mall/header::header-fragment"></header>
@@ -33,25 +33,30 @@
             </div>
 
             <div class="order">
-                <input class="car" type="button" th:onclick="'saveAndGoCart('+${goodsDetail.goodsId}+')'" value="立即选购"/>
-                <input class="car" type="button" th:onclick="'saveToCart('+${goodsDetail.goodsId}+')'" value="加入购物车"/>
+                <input class="car" th:onclick="'saveAndGoCart('+${goodsDetail.goodsId}+')'" type="button"
+                       value="立即选购"/>
+                <input class="car" th:onclick="'saveToCart('+${goodsDetail.goodsId}+')'" type="button"
+                       value="加入购物车"/>
             </div>
             <div class="tb-extra ml20" id="J_tbExtra">
                 <dl>
                     <dt>承诺</dt>
-                    <dd><a class="J_Cont" title="满足7天无理由退换货申请的前提下，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费。" href="#"
-                           target="_blank"><img th:src="@{/mall/image/7d.jpg}">7天无理由</a></dd>
+                    <dd><a class="J_Cont"
+                           href="#"
+                           target="_blank"
+                           title="满足7天无理由退换货申请的前提下，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费。"><img
+                            th:src="@{/mall/image/7d.jpg}">7天无理由</a></dd>
                 </dl>
                 <dl>
                     <dt>支付</dt>
                     <dd><a href="##" target="_blank"><img th:src="@{/mall/image/hua.png}">蚂蚁花呗</a><a href="##"
-                                                                                                     target="_blank"><img
+                                                                                                         target="_blank"><img
                             th:src="@{/mall/image/card.png}">信用卡支付</a><a href="##" target="_blank"><img
                             th:src="@{/mall/image/ji.png}">集分宝</a></dd>
                 </dl>
                 <dl>
                     <dt>支持</dt>
-                    <dd>折旧变现，买新更省钱。<a style="float:none;text-decoration: underline;" href="##">详情</a></dd>
+                    <dd>折旧变现，买新更省钱。<a href="##" style="float:none;text-decoration: underline;">详情</a></dd>
                 </dl>
 
             </div>

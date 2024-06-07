@@ -2,23 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head-fragment(title,path)">
     <meta charset="UTF-8">
-    <title>小米商城 starsea-mall</title>
+    <title>宸憙商城 starsea-mall</title>
     <link rel="stylesheet" th:href="@{/mall/css/swiper.min.css}">
     <link rel="stylesheet" th:href="@{/mall/css/iconfont.css}">
     <link rel="stylesheet" th:href="@{/mall/css/common.css}">
     <link rel="stylesheet" th:href="@{/mall/styles/header.css}">
     <link rel="stylesheet" th:href="@{'/mall/styles/'+${path}+'.css'}">
     <link rel="stylesheet" th:href="@{/admin/plugins/sweetalert/sweetalert.css}"/>
-    <meta name="keywords" content="小米商城,starsea-mall,小米,商城,开源商城,starsea,企业级商城,大型商城项目,Java商城,springboot商城,SpringBoot商城项目,Spring Boot 大型线上商城项目实战教程" />
-    <meta name="description" content="starsea-mall 项目（小米商城）是一套电商系统，包括 starsea-mall 商城系统及 starsea-mall-admin 商城后台管理系统，基于 Spring Boot 2.X 及相关技术栈开发。前台商城系统包含首页门户、商品分类、新品上线、首页轮播、商品推荐、商品搜索、商品展示、购物车、订单结算、订单流程、个人订单管理、会员中心、帮助中心等模块。后台管理系统包含数据面板、轮播图管理、商品管理、订单管理、会员管理、分类管理、设置等模块。Spring Boot 大型线上商城项目实战教程"/>
+    <meta content="宸憙商城,starsea-mall,小米,商城,开源商城,starsea,企业级商城,大型商城项目,Java商城,springboot商城,SpringBoot商城项目,Spring Boot 大型线上商城项目实战教程"
+          name="keywords"/>
+    <meta content="starsea-mall 项目（宸憙商城）是一套电商系统，包括 starsea-mall 商城系统及 starsea-mall-admin 商城后台管理系统，基于 Spring Boot 2.X 及相关技术栈开发。前台商城系统包含首页门户、商品分类、新品上线、首页轮播、商品推荐、商品搜索、商品展示、购物车、订单结算、订单流程、个人订单管理、会员中心、帮助中心等模块。后台管理系统包含数据面板、轮播图管理、商品管理、订单管理、会员管理、分类管理、设置等模块。Spring Boot 大型线上商城项目实战教程"
+          name="description"/>
 </head>
 
 <nav id="nav" th:fragment="nav-fragment">
     <div class="banner_x center">
-        <a th:href="@{/index}" class="logo"><h1>小米商城</h1></a>
+        <a class="logo" th:href="@{/index}"><h1>宸憙商城</h1></a>
         <div class="fr">
             <div class="search">
-                <input class="text" type="text" id="keyword" autocomplete="off">
+                <input autocomplete="off" class="text" id="keyword" type="text">
                 <div class="search_hot">
                 </div>
             </div>
@@ -29,7 +31,7 @@
 <header id="header" th:fragment="header-fragment">
     <div class="center">
         <ul class="fl">
-            <li><a th:href="@{/index}">小米商城</a></li>
+            <li><a th:href="@{/index}">宸憙商城</a></li>
             <li><a th:href="@{/admin}">后台管理系统</a></li>
             <li><a href="https://github.com/StarSea99/starsea-mall">GitHub 地址</a></li>
             <li><a href="#">码云Gitee 地址</a></li>
@@ -54,13 +56,13 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="##" class="username">
+                    <a class="username" href="##">
                         <th:block th:text="${session.newBeeMallUser.nickName}"></th:block>
                         <i class="iconfont icon-down"></i>
                     </a>
                 </div>
                 <div class="shopcart">
-                    <a th:href="@{/shop-cart}" style="color: white;"><i class="iconfont icon-cart"></i>
+                    <a style="color: white;" th:href="@{/shop-cart}"><i class="iconfont icon-cart"></i>
                         购物车(
                         <th:block th:text="${session.newBeeMallUser.shopCartItemCount}"></th:block>
                         )</a>

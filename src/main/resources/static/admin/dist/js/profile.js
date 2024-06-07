@@ -1,7 +1,7 @@
 $(function () {
     //修改个人信息
     $('#updateUserNameButton').click(function () {
-        $("#updateUserNameButton").attr("disabled",true);
+        $("#updateUserNameButton").attr("disabled", true);
         var userName = $('#loginUserName').val();
         var nickName = $('#nickName').val();
         if (validUserNameForUpdate(userName, nickName)) {
@@ -12,7 +12,7 @@ $(function () {
                 url: "/admin/profile/name",
                 data: params,
                 success: function (r) {
-                    $("#updateUserNameButton").attr("disabled",false);
+                    $("#updateUserNameButton").attr("disabled", false);
                     console.log(r);
                     if (r == 'success') {
                         alert('修改成功');
@@ -21,14 +21,14 @@ $(function () {
                     }
                 }
             });
-        }else{
-            $("#updateUserNameButton").attr("disabled",false);
+        } else {
+            $("#updateUserNameButton").attr("disabled", false);
         }
 
     });
     //修改密码
     $('#updatePasswordButton').click(function () {
-        $("#updatePasswordButton").attr("disabled",true);
+        $("#updatePasswordButton").attr("disabled", true);
         var originalPassword = $('#originalPassword').val();
         var newPassword = $('#newPassword').val();
         if (validPasswordForUpdate(originalPassword, newPassword)) {
@@ -38,7 +38,7 @@ $(function () {
                 url: "/admin/profile/password",
                 data: params,
                 success: function (r) {
-                    $("#updatePasswordButton").attr("disabled",false);
+                    $("#updatePasswordButton").attr("disabled", false);
                     console.log(r);
                     if (r == 'success') {
                         alert('修改成功');
@@ -48,8 +48,8 @@ $(function () {
                     }
                 }
             });
-        }else {
-            $("#updatePasswordButton").attr("disabled",false);
+        } else {
+            $("#updatePasswordButton").attr("disabled", false);
         }
 
     });

@@ -109,7 +109,7 @@ $('#saveButton').click(function () {
                         icon: "error",
                     });
                 }
-                ;
+
             },
             error: function () {
                 swal("操作失败", {
@@ -136,7 +136,7 @@ function configEdit() {
     $("#configRank").val(rowData.configRank);
 }
 
-function deleteConfig () {
+function deleteConfig() {
     var ids = getSelectedRows();
     if (ids == null) {
         return;

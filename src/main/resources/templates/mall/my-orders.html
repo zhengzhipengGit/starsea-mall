@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('小米商城-订单列表','my-orders')">
+<head th:replace="mall/header::head-fragment('宸憙商城-订单列表','my-orders')">
 </head>
 <body>
 <header th:replace="mall/header::header-fragment"></header>
@@ -76,8 +76,10 @@
                                                                     <div class="figure figure-thumb">
                                                                         <a target="_blank"
                                                                            th:href="@{'/goods/detail/'+${item.goodsId}}">
-                                                                            <img th:src="@{${item.goodsCoverImg}}"
-                                                                                 width="80" height="80" alt="">
+                                                                            <img alt=""
+                                                                                 height="80"
+                                                                                 th:src="@{${item.goodsCoverImg}}"
+                                                                                 width="80">
                                                                         </a>
                                                                     </div>
                                                                     <p class="name"><a target="_blank"
@@ -115,7 +117,7 @@
                                         th:href="@{'/orders?page=' + ${orderPageResult.currPage-1}}"
                                         th:text="${orderPageResult.currPage -1}">1</a>
                                 </th:block>
-                                <a href="##" class="numbers current" th:text="${orderPageResult.currPage}">1</a>
+                                <a class="numbers current" href="##" th:text="${orderPageResult.currPage}">1</a>
                                 <th:block th:if="${orderPageResult.currPage+1<=orderPageResult.totalPage}"><a
                                         class="numbers"
                                         th:href="@{'/orders?page=' + ${orderPageResult.currPage+1}}"

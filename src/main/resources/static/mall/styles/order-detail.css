@@ -173,17 +173,20 @@
 .uc-content-box .box-hd .actions .btn {
     margin-left: 5px;
 }
+
 .btn-line-gray {
     border-color: #b0b0b0;
     background: #fff;
     color: #757575;
 }
+
 .btn-small {
     width: 118px;
     height: 28px;
     font-size: 12px;
     line-height: 28px;
 }
+
 .btn {
     display: inline-block;
     *zoom: 1;
@@ -220,9 +223,11 @@
 .order-view-box .uc-order-item .order-status {
     margin-bottom: 25px;
 }
+
 .uc-order-item-pay .order-status, .uc-order-item-pay .order-desc {
     color: #1baeae;
 }
+
 .uc-order-item .order-status {
     font-size: 18px;
 }
@@ -230,9 +235,11 @@
 .order-view-box .uc-order-item .order-desc {
     margin: -15px 0 25px;
 }
+
 .uc-order-item-pay .order-status, .uc-order-item-pay .order-desc {
     color: #1baeae;
 }
+
 .uc-order-item .order-desc {
     margin: 10px 0 0;
 }
@@ -269,6 +276,7 @@
     background-color: #83c44e;
     color: #fff;
 }
+
 .order-view-box .uc-order-item .progress-list .step {
     float: left;
     width: 176px;
@@ -347,6 +355,7 @@ td {
 .order-view-box .uc-order-item .order-items-table .col-name {
     width: 290px;
 }
+
 .order-view-box .uc-order-item .order-items-table .col {
     height: 90px;
     border-bottom: 1px solid #e0e0e0;
@@ -428,6 +437,7 @@ td {
 .order-view-box .uc-order-item .order-detail-total .num {
     margin-right: .125em;
 }
+
 .order-view-box .uc-order-item .order-detail-total .total-table td {
     text-align: right;
     color: #1baeae;

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('小米商城-订单结算','order-detail')">
+<head th:replace="mall/header::head-fragment('宸憙商城-订单结算','order-detail')">
 </head>
-<link th:href="@{/mall/css/bootstrap-modal.css}" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/mall/css/bootstrap-modal.css}">
 <body>
 <header th:replace="mall/header::header-fragment"></header>
 <!-- nav -->
@@ -22,7 +22,7 @@
                         <h1 class="title">填写并核对订单信息</h1>
                         <div class="more clearfix">
                             <div class="actions">
-                                <a id="saveOrder" class="btn btn-small btn-primary" title="提交订单">提交订单</a>
+                                <a class="btn btn-small btn-primary" id="saveOrder" title="提交订单">提交订单</a>
                             </div>
                         </div>
                     </div>
@@ -64,8 +64,8 @@
                                             <td class="col col-thumb">
                                                 <div class="figure figure-thumb">
                                                     <a target="_blank" th:href="@{'/goods/detail/'+${item.goodsId}}">
-                                                        <img th:src="@{${item.goodsCoverImg}}"
-                                                             width="80" height="80" alt="">
+                                                        <img alt=""
+                                                             height="80" th:src="@{${item.goodsCoverImg}}" width="80">
                                                     </a>
                                                 </div>
                                             </td>
@@ -85,7 +85,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="editAddr" class="order-detail-info">
+                            <div class="order-detail-info" id="editAddr">
                                 <h3>收货信息</h3>
                                 <table class="info-table">
                                     <tbody>
@@ -103,7 +103,7 @@
                                        href="javascript:openUpdateModal();">修改</a>
                                 </div>
                             </div>
-                            <div id="editTime" class="order-detail-info">
+                            <div class="order-detail-info" id="editTime">
                                 <h3>支付方式</h3>
                                 <table class="info-table">
                                     <tbody>
@@ -141,29 +141,29 @@
             </div>
         </div>
         <!--修改收货地址的对话框-->
-        <div class="modal fade" id="personalInfoModal" tabindex="-1" role="dialog"
-             aria-labelledby="personalInfoModalLabel">
+        <div aria-labelledby="personalInfoModalLabel" class="modal fade" id="personalInfoModal" role="dialog"
+             tabindex="-1">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                 aria-hidden="true">&times;</span></button>
                         <h6 class="modal-title" id="personalInfoModalLabel">地址修改</h6>
                     </div>
                     <div class="modal-body">
                         <form id="personalInfoForm">
                             <div class="form-group">
-                                <input type="hidden" id="userId" th:value="${session.newBeeMallUser.userId}">
-                                <label for="address" class="control-label">收货地址:</label>
-                                <input type="text" class="form-control" id="address" name="address"
-                                       placeholder="请输入收货地址" th:value="${session.newBeeMallUser.address}"
-                                       required="true">
+                                <input id="userId" th:value="${session.newBeeMallUser.userId}" type="hidden">
+                                <label class="control-label" for="address">收货地址:</label>
+                                <input class="form-control" id="address" name="address" placeholder="请输入收货地址"
+                                       required="true" th:value="${session.newBeeMallUser.address}"
+                                       type="text">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary" id="saveButton">确认</button>
+                        <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+                        <button class="btn btn-primary" id="saveButton" type="button">确认</button>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                         icon: "error",
                     });
                 }
-                ;
+
             },
             error: function () {
                 swal('操作失败', {

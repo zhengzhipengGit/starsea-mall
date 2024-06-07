@@ -44,7 +44,7 @@
                         </div>
                         <br>
                         <!--数据展示区域-->
-                        <table id="jqGrid" class="table table-bordered">
+                        <table class="table table-bordered" id="jqGrid">
                         </table>
                         <div id="jqGridPager"></div>
                     </div><!-- /.card-body -->
@@ -54,12 +54,12 @@
         <!-- /.content -->
         <div class="content">
             <!-- 模态框（Modal） -->
-            <div class="modal fade" id="carouselModal" tabindex="-1" role="dialog"
-                 aria-labelledby="carouselModalLabel">
+            <div aria-labelledby="carouselModalLabel" class="modal fade" id="carouselModal" role="dialog"
+                 tabindex="-1">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                     aria-hidden="true">&times;</span></button>
                             <h6 class="modal-title" id="carouselModalLabel">Modal</h6>
                         </div>
@@ -79,27 +79,29 @@
                                 <br>
                                 <div class="form-group">
                                     <div class="col-sm-4">
-                                        <button class="btn btn-info" style="margin-bottom: 5px;"
-                                                id="uploadCarouselImage">
+                                        <button class="btn btn-info" id="uploadCarouselImage"
+                                                style="margin-bottom: 5px;">
                                             <i class="fa fa-picture-o"></i>&nbsp;上传轮播图
                                         </button>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="redirectUrl" class="control-label">跳转链接:</label>
-                                    <input type="text" class="form-control" id="redirectUrl" name="redirectUrl"
-                                           placeholder="请输入跳转链接" value="##">
+                                    <label class="control-label" for="redirectUrl">跳转链接:</label>
+                                    <input class="form-control" id="redirectUrl" name="redirectUrl"
+                                           placeholder="请输入跳转链接"
+                                           type="text" value="##">
                                 </div>
                                 <div class="form-group">
-                                    <label for="carouselRank" class="control-label">排序值:</label>
-                                    <input type="number" class="form-control" id="carouselRank" name="carouselRank"
-                                           placeholder="请输入排序值">
+                                    <label class="control-label" for="carouselRank">排序值:</label>
+                                    <input class="form-control" id="carouselRank" name="carouselRank"
+                                           placeholder="请输入排序值"
+                                           type="number">
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary" id="saveButton">确认</button>
+                            <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+                            <button class="btn btn-primary" id="saveButton" type="button">确认</button>
                         </div>
                     </div>
                 </div>

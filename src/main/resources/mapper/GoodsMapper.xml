@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.siro.mall.dao.GoodsMapper">
-    <resultMap id="BaseResultMap" type="com.siro.mall.entity.Goods">
+<mapper namespace="com.cx.mall.dao.GoodsMapper">
+    <resultMap id="BaseResultMap" type="com.cx.mall.entity.Goods">
         <id column="goods_id" jdbcType="BIGINT" property="goodsId"/>
         <result column="goods_name" jdbcType="VARCHAR" property="goodsName"/>
         <result column="goods_intro" jdbcType="VARCHAR" property="goodsIntro"/>
@@ -18,16 +18,17 @@
         <result column="update_user" jdbcType="INTEGER" property="updateUser"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
-    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.siro.mall.entity.Goods">
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cx.mall.entity.Goods">
         <result column="goods_detail_content" jdbcType="LONGVARCHAR" property="goodsDetailContent"/>
     </resultMap>
     <sql id="Base_Column_List">
-        goods_id, goods_name, goods_intro,goods_category_id, goods_cover_img, goods_carousel, original_price,
+        goods_id
+        , goods_name, goods_intro,goods_category_id, goods_cover_img, goods_carousel, original_price,
         selling_price, stock_num, tag, goods_sell_status, create_user, create_time, update_user,
         update_time
     </sql>
     <sql id="Blob_Column_List">
-      goods_detail_content
+        goods_detail_content
     </sql>
 
     <insert id="batchInsert">
@@ -168,24 +169,24 @@
         </where>
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tb_goods_info
-    where goods_id = #{goodsId,jdbcType=BIGINT}
-  </delete>
-    <insert id="insert" parameterType="com.siro.mall.entity.Goods">
-    insert into tb_goods_info (goods_id, goods_name, goods_intro,
-      goods_cover_img, goods_carousel, original_price,
-      selling_price, stock_num, tag,
-      goods_sell_status, create_user, create_time,
-      update_user, update_time, goods_detail_content
-      )
-    values (#{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, #{goodsIntro,jdbcType=VARCHAR},
-      #{goodsCoverImg,jdbcType=VARCHAR}, #{goodsCarousel,jdbcType=VARCHAR}, #{originalPrice,jdbcType=INTEGER},
-      #{sellingPrice,jdbcType=INTEGER}, #{stockNum,jdbcType=INTEGER}, #{tag,jdbcType=VARCHAR},
-      #{goodsSellStatus,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
-      #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{goodsDetailContent,jdbcType=LONGVARCHAR}
-      )
-  </insert>
-    <insert id="insertSelective" parameterType="com.siro.mall.entity.Goods">
+        delete
+        from tb_goods_info
+        where goods_id = #{goodsId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.cx.mall.entity.Goods">
+        insert into tb_goods_info (goods_id, goods_name, goods_intro,
+                                   goods_cover_img, goods_carousel, original_price,
+                                   selling_price, stock_num, tag,
+                                   goods_sell_status, create_user, create_time,
+                                   update_user, update_time, goods_detail_content)
+        values (#{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, #{goodsIntro,jdbcType=VARCHAR},
+                #{goodsCoverImg,jdbcType=VARCHAR}, #{goodsCarousel,jdbcType=VARCHAR}, #{originalPrice,jdbcType=INTEGER},
+                #{sellingPrice,jdbcType=INTEGER}, #{stockNum,jdbcType=INTEGER}, #{tag,jdbcType=VARCHAR},
+                #{goodsSellStatus,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
+                #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP},
+                #{goodsDetailContent,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.cx.mall.entity.Goods">
         insert into tb_goods_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="goodsId != null">
@@ -288,7 +289,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.siro.mall.entity.Goods">
+    <update id="updateByPrimaryKeySelective" parameterType="com.cx.mall.entity.Goods">
         update tb_goods_info
         <set>
             <if test="goodsName != null">
@@ -339,39 +340,39 @@
         </set>
         where goods_id = #{goodsId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.siro.mall.entity.Goods">
-    update tb_goods_info
-    set goods_name = #{goodsName,jdbcType=VARCHAR},
-      goods_intro = #{goodsIntro,jdbcType=VARCHAR},
-      goods_cover_img = #{goodsCoverImg,jdbcType=VARCHAR},
-      goods_carousel = #{goodsCarousel,jdbcType=VARCHAR},
-      original_price = #{originalPrice,jdbcType=INTEGER},
-      selling_price = #{sellingPrice,jdbcType=INTEGER},
-      stock_num = #{stockNum,jdbcType=INTEGER},
-      tag = #{tag,jdbcType=VARCHAR},
-      goods_sell_status = #{goodsSellStatus,jdbcType=TINYINT},
-      create_user = #{createUser,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      goods_detail_content = #{goodsDetailContent,jdbcType=LONGVARCHAR}
-    where goods_id = #{goodsId,jdbcType=BIGINT}
-  </update>
-    <update id="updateByPrimaryKey" parameterType="com.siro.mall.entity.Goods">
-    update tb_goods_info
-    set goods_name = #{goodsName,jdbcType=VARCHAR},
-      goods_intro = #{goodsIntro,jdbcType=VARCHAR},
-      goods_cover_img = #{goodsCoverImg,jdbcType=VARCHAR},
-      goods_carousel = #{goodsCarousel,jdbcType=VARCHAR},
-      original_price = #{originalPrice,jdbcType=INTEGER},
-      selling_price = #{sellingPrice,jdbcType=INTEGER},
-      stock_num = #{stockNum,jdbcType=INTEGER},
-      tag = #{tag,jdbcType=VARCHAR},
-      goods_sell_status = #{goodsSellStatus,jdbcType=TINYINT},
-      create_user = #{createUser,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where goods_id = #{goodsId,jdbcType=BIGINT}
-  </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cx.mall.entity.Goods">
+        update tb_goods_info
+        set goods_name           = #{goodsName,jdbcType=VARCHAR},
+            goods_intro          = #{goodsIntro,jdbcType=VARCHAR},
+            goods_cover_img      = #{goodsCoverImg,jdbcType=VARCHAR},
+            goods_carousel       = #{goodsCarousel,jdbcType=VARCHAR},
+            original_price       = #{originalPrice,jdbcType=INTEGER},
+            selling_price        = #{sellingPrice,jdbcType=INTEGER},
+            stock_num            = #{stockNum,jdbcType=INTEGER},
+            tag                  = #{tag,jdbcType=VARCHAR},
+            goods_sell_status    = #{goodsSellStatus,jdbcType=TINYINT},
+            create_user          = #{createUser,jdbcType=INTEGER},
+            create_time          = #{createTime,jdbcType=TIMESTAMP},
+            update_user          = #{updateUser,jdbcType=INTEGER},
+            update_time          = #{updateTime,jdbcType=TIMESTAMP},
+            goods_detail_content = #{goodsDetailContent,jdbcType=LONGVARCHAR}
+        where goods_id = #{goodsId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cx.mall.entity.Goods">
+        update tb_goods_info
+        set goods_name        = #{goodsName,jdbcType=VARCHAR},
+            goods_intro       = #{goodsIntro,jdbcType=VARCHAR},
+            goods_cover_img   = #{goodsCoverImg,jdbcType=VARCHAR},
+            goods_carousel    = #{goodsCarousel,jdbcType=VARCHAR},
+            original_price    = #{originalPrice,jdbcType=INTEGER},
+            selling_price     = #{sellingPrice,jdbcType=INTEGER},
+            stock_num         = #{stockNum,jdbcType=INTEGER},
+            tag               = #{tag,jdbcType=VARCHAR},
+            goods_sell_status = #{goodsSellStatus,jdbcType=TINYINT},
+            create_user       = #{createUser,jdbcType=INTEGER},
+            create_time       = #{createTime,jdbcType=TIMESTAMP},
+            update_user       = #{updateUser,jdbcType=INTEGER},
+            update_time       = #{updateTime,jdbcType=TIMESTAMP}
+        where goods_id = #{goodsId,jdbcType=BIGINT}
+    </update>
 </mapper>

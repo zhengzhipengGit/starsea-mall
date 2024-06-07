@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('小米商城-搜索','search')">
+<head th:replace="mall/header::head-fragment('宸憙商城-搜索','search')">
 </head>
 <body>
 <header th:replace="mall/header::header-fragment"></header>
@@ -13,7 +13,7 @@
         <div class="category_bar">
             <th:block th:if="${searchPageCategoryVO!=null}">
                 <div class="fm c">
-                    <a href="##" class="qqq" th:text="${searchPageCategoryVO.secondLevelCategoryName}">starsea-mall</a>
+                    <a class="qqq" href="##" th:text="${searchPageCategoryVO.secondLevelCategoryName}">starsea-mall</a>
                     <div>
                         <th:block th:each="thirdLevelCategory : ${searchPageCategoryVO.thirdLevelCategoryList}">
                             <a th:href="@{${'/search?goodsCategoryId='+thirdLevelCategory.categoryId}}"
@@ -21,7 +21,7 @@
                         </th:block>
                     </div>
                 </div>
-                <i><img src="mall/image/right-@1x.png" alt=""></i>
+                <i><img alt="" src="mall/image/right-@1x.png"></i>
                 <div class="findword">"
                     <th:block th:text="${searchPageCategoryVO.currentCategoryName}"></th:block>
                     "
@@ -62,9 +62,9 @@
         <th:block th:unless="${#lists.isEmpty(pageResult.list)}">
             <th:block th:each="goods : ${pageResult.list}">
                 <div class="item_card_frame">
-                    <div class="item_card"><a th:href="@{'/goods/detail/'+${goods.goodsId}}" target="_blank"><img
-                            th:src="@{${goods.goodsCoverImg}}" th:alt="${goods.goodsName}"></a></div>
-                    <div class="item_brand"><a th:href="@{'/goods/detail/'+${goods.goodsId}}" target="_blank"
+                    <div class="item_card"><a target="_blank" th:href="@{'/goods/detail/'+${goods.goodsId}}"><img
+                            th:alt="${goods.goodsName}" th:src="@{${goods.goodsCoverImg}}"></a></div>
+                    <div class="item_brand"><a target="_blank" th:href="@{'/goods/detail/'+${goods.goodsId}}"
                                                th:text="${goods.goodsName}">starsea.ltd</a></div>
                     <div class="item_sub_intro" th:text="${goods.goodsIntro}">starsea.ltd</div>
                     <div class="item_price" th:text="${goods.sellingPrice+'.00元'}">1299.00元</div>
@@ -86,7 +86,7 @@
                 <th:block th:if="${pageResult.currPage-1 >=1}"><a
                         th:href="@{'/search?keyword='+${keyword==null?'':keyword}+'&page=' + ${pageResult.currPage-1}+'&goodsCategoryId='+${goodsCategoryId==null?'':goodsCategoryId}+'&orderBy='+${orderBy==null?'':orderBy}}"
                         th:text="${pageResult.currPage -1}">1</a></th:block>
-                <a href="##" class="active" th:text="${pageResult.currPage}">1</a>
+                <a class="active" href="##" th:text="${pageResult.currPage}">1</a>
                 <th:block th:if="${pageResult.currPage+1<=pageResult.totalPage}"><a
                         th:href="@{'/search?keyword='+${keyword==null?'':keyword}+'&page=' + ${pageResult.currPage+1}+'&goodsCategoryId='+${goodsCategoryId==null?'':goodsCategoryId}+'&orderBy='+${orderBy==null?'':orderBy}}"
                         th:text="${pageResult.currPage +1}">1</a></th:block>

@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>小米商城 ERROR PAGE</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>宸憙商城 ERROR PAGE</title>
     <style type="text/css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
     html {
         font-family: sans-serif;
@@ -278,12 +278,12 @@
 <body>
 <div class="cover">
     <h1>你的请求出错了</h1>
-    <p th:text="'错误信息：'+${message}" style="color: red;font-weight: 600;"></p>
+    <p style="color: red;font-weight: 600;" th:text="'错误信息：'+${message}"></p>
     <p th:text="'请求地址：'+${url}"></p>
     <h2>报告问题</h2>
-    <a href="https://github.com/newbee-ltd/newbee-mall/issues/new" target="_blank" style="color: #1baeae">提交issue</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/newbee-ltd/newbee-mall/issues/new" style="color: #1baeae" target="_blank">提交issue</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="//shang.qq.com/wpa/qunwpa?idkey=dc0e028f177932aee2c212a2dd60e0b8342042ac205305803ea801c4eea6727c"
-       target="_blank" style="color: #1baeae">QQ交流群</a>
+       style="color: #1baeae" target="_blank">QQ交流群</a>
     <h2>异常堆栈跟踪日志</h2>
     <div th:each="string:${stackTrace}">
         <small>
@@ -291,8 +291,8 @@
         </small>
     </div>
     <h2>Copy Right</h2>
-    <p th:text="'author：'+${author}" style="color: #1baeae;"></p>
-    <p th:text="'ltd：'+${ltd}" style="color: #1baeae;"></p>
+    <p style="color: #1baeae;" th:text="'author：'+${author}"></p>
+    <p style="color: #1baeae;" th:text="'ltd：'+${ltd}"></p>
 </div>
 </body>
 </html>

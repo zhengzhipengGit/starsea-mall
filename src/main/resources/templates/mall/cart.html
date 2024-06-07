@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>小米商城-购物车</title>
+    <title>宸憙商城-购物车</title>
     <link rel="stylesheet" th:href="@{mall/css/iconfont.css}">
     <link rel="stylesheet" th:href="@{mall/css/common.css}">
     <link rel="stylesheet" th:href="@{mall/styles/header.css}">
@@ -13,7 +13,7 @@
 
 <div id="cart">
     <div class="banner_x center">
-        <a th:href="@{/index}" target="_blank">
+        <a target="_blank" th:href="@{/index}">
             <div class="logo fl">
                 <img src="mall/image/new-bee-logo-3.png"/>
             </div>
@@ -50,10 +50,11 @@
                         <div class="sub_content fl ft20" th:text="${item.goodsName}">商品名称</div>
                         <div class="sub_content fl" th:text="${item.sellingPrice+'元'}">1299元</div>
                         <div class="sub_content fl">
-                            <input class="goods_count" th:id="${'goodsCount'+item.cartItemId}" type="number"
-                                   th:onblur="'updateItem('+${item.cartItemId}+')'"
-                                   th:value="${item.goodsCount}" step="1" min="1"
-                                   max="5">
+                            <input class="goods_count" max="5" min="1"
+                                   step="1"
+                                   th:id="${'goodsCount'+item.cartItemId}"
+                                   th:onblur="'updateItem('+${item.cartItemId}+')'" th:value="${item.goodsCount}"
+                                   type="number">
                         </div>
                         <div class="sub_content fl" th:text="${item.goodsCount*item.sellingPrice+'元'}">1299元</div>
                         <div class="sub_content fl"><a href="##" th:onclick="'deleteItem('+${item.cartItemId}+')'">×</a>
@@ -76,13 +77,13 @@
                 <div class="order_total fl">合计（不含运费）：<span th:text="${priceTotal}+'.00元'">1299.00元</span></div>
                 <div class="order_button fr">
                     <th:block th:if="${itemsTotal == 0}">
-                        <input class="order_button_c" type="button" name="tip"
-                               onclick="tip()"
+                        <input class="order_button_c" name="tip" onclick="tip()"
+                               type="button"
                                value="去结算"/>
                     </th:block>
                     <th:block th:unless="${itemsTotal == 0}">
-                        <input class="order_button_d" type="button" name="settle"
-                               onclick="settle()"
+                        <input class="order_button_d" name="settle" onclick="settle()"
+                               type="button"
                                value="去结算"/>
                     </th:block>
                 </div>

@@ -7,7 +7,7 @@ $(function () {
             {label: '订单号', name: 'orderNo', index: 'orderNo', width: 120},
             {label: '订单总价', name: 'totalPrice', index: 'totalPrice', width: 60},
             {label: '订单状态', name: 'orderStatus', index: 'orderStatus', width: 80, formatter: orderStatusFormatter},
-            {label: '支付方式', name: 'payType', index: 'payType', width: 80,formatter:payTypeFormatter},
+            {label: '支付方式', name: 'payType', index: 'payType', width: 80, formatter: payTypeFormatter},
             {label: '收件人地址', name: 'userAddress', index: 'userAddress', width: 10, hidden: true},
             {label: '创建时间', name: 'createTime', index: 'createTime', width: 120},
             {label: '操作', name: 'createTime', index: 'createTime', width: 120, formatter: operateFormatter}
@@ -130,7 +130,7 @@ function openOrderItems(orderId) {
                     icon: "error",
                 });
             }
-            ;
+
         },
         error: function () {
             swal("操作失败", {
@@ -202,7 +202,7 @@ $('#saveButton').click(function () {
                     icon: "error",
                 });
             }
-            ;
+
         },
         error: function () {
             swal("操作失败", {

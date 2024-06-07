@@ -122,7 +122,7 @@ $('#saveButton').click(function () {
                     icon: "error",
                 });
             }
-            ;
+
         },
         error: function () {
             swal("操作失败", {

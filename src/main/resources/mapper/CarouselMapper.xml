@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.siro.mall.dao.CarouselMapper">
-    <resultMap id="BaseResultMap" type="com.siro.mall.entity.Carousel">
+<mapper namespace="com.cx.mall.dao.CarouselMapper">
+    <resultMap id="BaseResultMap" type="com.cx.mall.entity.Carousel">
         <id column="carousel_id" jdbcType="INTEGER" property="carouselId"/>
         <result column="carousel_url" jdbcType="VARCHAR" property="carouselUrl"/>
         <result column="redirect_url" jdbcType="VARCHAR" property="redirectUrl"/>
@@ -13,7 +13,8 @@
         <result column="update_user" jdbcType="INTEGER" property="updateUser"/>
     </resultMap>
     <sql id="Base_Column_List">
-        carousel_id, carousel_url, redirect_url, carousel_rank, is_deleted, create_time,
+        carousel_id
+        , carousel_url, redirect_url, carousel_rank, is_deleted, create_time,
         create_user, update_time, update_user
     </sql>
 
@@ -29,7 +30,8 @@
     </select>
 
     <select id="getTotalCarousels" parameterType="Map" resultType="int">
-        select count(*) from tb_carousel
+        select count(*)
+        from tb_carousel
         where is_deleted = 0
     </select>
 
@@ -49,21 +51,20 @@
         limit #{number}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_carousel
-    where carousel_id = #{carouselId,jdbcType=INTEGER}
-  </delete>
-    <insert id="insert" parameterType="com.siro.mall.entity.Carousel">
-    insert into tb_carousel (carousel_id, carousel_url, redirect_url,
-      carousel_rank, is_deleted, create_time,
-      create_user, update_time, update_user
-      )
-    values (#{carouselId,jdbcType=INTEGER}, #{carouselUrl,jdbcType=VARCHAR}, #{redirectUrl,jdbcType=VARCHAR},
-      #{carouselRank,jdbcType=INTEGER}, #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
-      #{createUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=INTEGER}
-      )
-  </insert>
+        delete
+        from tb_carousel
+        where carousel_id = #{carouselId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.cx.mall.entity.Carousel">
+        insert into tb_carousel (carousel_id, carousel_url, redirect_url,
+                                 carousel_rank, is_deleted, create_time,
+                                 create_user, update_time, update_user)
+        values (#{carouselId,jdbcType=INTEGER}, #{carouselUrl,jdbcType=VARCHAR}, #{redirectUrl,jdbcType=VARCHAR},
+                #{carouselRank,jdbcType=INTEGER}, #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
+                #{createUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=INTEGER})
+    </insert>
 
-    <insert id="insertSelective" parameterType="com.siro.mall.entity.Carousel">
+    <insert id="insertSelective" parameterType="com.cx.mall.entity.Carousel">
         insert into tb_carousel
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="carouselId != null">
@@ -124,7 +125,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.siro.mall.entity.Carousel">
+    <update id="updateByPrimaryKeySelective" parameterType="com.cx.mall.entity.Carousel">
         update tb_carousel
         <set>
             <if test="carouselUrl != null">
@@ -154,18 +155,18 @@
         </set>
         where carousel_id = #{carouselId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.siro.mall.entity.Carousel">
-    update tb_carousel
-    set carousel_url = #{carouselUrl,jdbcType=VARCHAR},
-      redirect_url = #{redirectUrl,jdbcType=VARCHAR},
-      carousel_rank = #{carouselRank,jdbcType=INTEGER},
-      is_deleted = #{isDeleted,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      create_user = #{createUser,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=INTEGER}
-    where carousel_id = #{carouselId,jdbcType=INTEGER}
-  </update>
+    <update id="updateByPrimaryKey" parameterType="com.cx.mall.entity.Carousel">
+        update tb_carousel
+        set carousel_url  = #{carouselUrl,jdbcType=VARCHAR},
+            redirect_url  = #{redirectUrl,jdbcType=VARCHAR},
+            carousel_rank = #{carouselRank,jdbcType=INTEGER},
+            is_deleted    = #{isDeleted,jdbcType=TINYINT},
+            create_time   = #{createTime,jdbcType=TIMESTAMP},
+            create_user   = #{createUser,jdbcType=INTEGER},
+            update_time   = #{updateTime,jdbcType=TIMESTAMP},
+            update_user   = #{updateUser,jdbcType=INTEGER}
+        where carousel_id = #{carouselId,jdbcType=INTEGER}
+    </update>
     <update id="deleteBatch">
         update tb_carousel
         set is_deleted=1,update_time=now() where carousel_id in

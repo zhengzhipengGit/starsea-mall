@@ -137,10 +137,12 @@
     margin-right: 17px;
     margin-bottom: 20px;
 }
+
 .address-item-new {
     text-align: center;
     color: #b0b0b0;
 }
+
 .address-item {
     width: 268px;
     height: 178px;
@@ -165,6 +167,7 @@
     transition: all .4s ease;
     color: #fff;
 }
+
 .iconfont {
     font-family: "iconfont" !important;
     font-style: normal;
@@ -178,6 +181,7 @@
     margin-right: 17px;
     margin-bottom: 20px;
 }
+
 .address-item {
     width: 268px;
     height: 178px;
@@ -187,24 +191,29 @@
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
 }
+
 .address-item dl {
     padding: 15px 24px 0;
     margin: 0;
 }
+
 .address-item dt {
     margin: 0 0 10px;
     line-height: 30px;
 }
+
 .address-item .uname {
     font-size: 18px;
     color: #333;
     font-style: normal;
 }
+
 .address-item dd {
     margin: 0;
     line-height: 22px;
     color: #757575;
 }
+
 .address-item .actions {
     position: absolute;
     right: 24px;
@@ -212,6 +221,7 @@
     width: 100px;
     height: 24px;
 }
+
 .address-item .modify {
     margin-left: 10px;
     color: #1baeae;
